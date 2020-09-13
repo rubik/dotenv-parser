@@ -10,7 +10,8 @@ struct DotenvLineParser;
 /// Parse the .env file source.
 pub fn parse_dotenv(
     source: &str,
-) -> Result<BTreeMap<String, String>, Box<dyn std::error::Error>> {
+) -> Result<BTreeMap<String, String>, Box<dyn std::error::Error + Send + Sync>>
+{
     let mut map = BTreeMap::new();
     let pairs = DotenvLineParser::parse(Rule::env, source)?;
     for pair in pairs {
@@ -101,7 +102,10 @@ mod tests {
             .into_iter()
             .map(|(a, b)| (a.into(), b.into()))
             .collect();
-        assert_eq!(parse_dotenv("key=https://1.3.2.3:234/a?b=c\n").unwrap(), bm);
+        assert_eq!(
+            parse_dotenv("key=https://1.3.2.3:234/a?b=c\n").unwrap(),
+            bm
+        );
     }
 
     #[test]
