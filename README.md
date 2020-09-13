@@ -1,6 +1,6 @@
 <div align="center">
   <h1>dotenv-parser</h1>
-  <p>Pest-based parser for `.env` files.</p>
+  <p>Pest-based parser for <code>.env</code> files.</p>
   <a target="_blank" href="https://travis-ci.org/rubik/dotenv-parser">
     <img src="https://img.shields.io/travis/rubik/dotenv-parser?style=for-the-badge" alt="Build">
   </a>
