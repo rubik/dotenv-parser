@@ -1,0 +1,17 @@
+WHITESPACE = _{ " " | "\t" }
+COMMENT = @{ "#" ~ comment_char* }
+comment_char = { !NEWLINE ~ ANY }
+
+export = _{ "export" }
+key = @{ (ASCII_ALPHA | "_") ~ (ASCII_ALPHANUMERIC | "_")* }
+value = @{ string | var }
+string = ${ "\"" ~ inner_dq ~ "\"" | "'" ~ inner_sq ~ "'" }
+inner_dq = @{ char_dq+ }
+inner_sq = @{ char_sq+ }
+char_dq = { !("\"" | NEWLINE) ~ ANY }
+char_sq = { !("'" | NEWLINE) ~ ANY }
+var = @{ var_char+ }
+var_char = { !(WHITESPACE | NEWLINE | "#") ~ ANY }
+
+kv = { export? ~ key ~ "=" ~ value }
+env = _{ SOI ~ NEWLINE* ~ (kv ~ NEWLINE+)* ~ kv? ~ EOI }

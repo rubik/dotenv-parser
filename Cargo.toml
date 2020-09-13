@@ -1,0 +1,15 @@
+[package]
+name = "dotenv-parser"
+version = "0.1.0"
+authors = ["Michele Lacchia <michelelacchia@gmail.com>"]
+edition = "2018"
+license = "ISC"
+
+description = "Effortless configuration management for Rust."
+homepage = "https://github.com/rubik/hydroconf"
+repository = "https://github.com/rubik/hydroconf"
+keywords = ["configuration", "12factorapp", "settings"]
+
+[dependencies]
+pest = "2.1"
+pest_derive = "2.1"
