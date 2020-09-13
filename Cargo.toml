@@ -5,10 +5,10 @@ authors = ["Michele Lacchia <michelelacchia@gmail.com>"]
 edition = "2018"
 license = "ISC"
 
-description = "Effortless configuration management for Rust."
-homepage = "https://github.com/rubik/hydroconf"
-repository = "https://github.com/rubik/hydroconf"
-keywords = ["configuration", "12factorapp", "settings"]
+description = "Pest-based parser for .env files"
+homepage = "https://github.com/rubik/dotenv-parser"
+repository = "https://github.com/rubik/dotenv-parser"
+keywords = ["configuration", "pest", "parser", "env", "dotenv"]
 
 [dependencies]
 pest = "2.1"
