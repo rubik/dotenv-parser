@@ -154,7 +154,7 @@ mod tests {
     fn complete_dotenv() {
         let source = r#"
             ENV_FOR_HYDRO='testing 2' # another one here
-            USER_ID=5gpPN5rcv5G41U_S
+            export USER_ID=5gpPN5rcv5G41U_S
             API_TOKEN=30af563ccc668bc8ced9e24e  # relax! these values are fake
             APP_SITE_URL=https://my.example.com
         "#;
