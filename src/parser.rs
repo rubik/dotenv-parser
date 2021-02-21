@@ -142,6 +142,24 @@ mod tests {
     }
 
     #[test]
+    fn empty_value_single_quotes() {
+        let bm = vec![("key", "value"), ("key2", "")]
+            .into_iter()
+            .map(|(a, b)| (a.into(), b.into()))
+            .collect();
+        assert_eq!(parse_dotenv("key = value\nkey2 = ''").unwrap(), bm);
+    }
+
+    #[test]
+    fn empty_value_double_quotes() {
+        let bm = vec![("key", "value"), ("key2", "")]
+            .into_iter()
+            .map(|(a, b)| (a.into(), b.into()))
+            .collect();
+        assert_eq!(parse_dotenv("key = value\nkey2 = \"\"").unwrap(), bm);
+    }
+
+    #[test]
     fn comments() {
         let source = r#"
             # one here
